@@ -16,4 +16,3 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 858611357010.dkr.ecr.us-west-2.amazonaws.com/linux18-front:latest
-      - echo apt-get install -y awscli
