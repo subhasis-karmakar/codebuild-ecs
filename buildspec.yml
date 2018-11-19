@@ -4,11 +4,11 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --region us-west-2)
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...          
+      - echo Building the Docker image...       
+      - $(aws ecr get-login --region us-west-2)
       - docker build -t linux18-front .
       - docker tag linux18-front:latest 858611357010.dkr.ecr.us-west-2.amazonaws.com/linux18-front:latest      
   post_build:
