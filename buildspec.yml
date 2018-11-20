@@ -4,6 +4,8 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+      - apt-get update -y
+      - apt-get install awscli -y
   build:
     commands:
       - echo Build started on `date`
@@ -16,5 +18,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 858611357010.dkr.ecr.us-west-2.amazonaws.com/linux18-front:latest
-      - apt-get install awscli -y
       - aws ecs update-service --service ecs-ci-cd-service --task-definition ecs-ci-cd-task:1  
